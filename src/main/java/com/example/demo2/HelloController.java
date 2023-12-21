@@ -20,20 +20,18 @@ public class HelloController {
 
     @FXML
     void button(ActionEvent event) {
-        button.setOnAction(actionEvent -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Open a file");
-            fileChooser.setInitialDirectory(new File("C:\\Users\\Алексей\\Pictures"));
-            fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPEG img", "*.jpg"),
-                    new FileChooser.ExtensionFilter("PNG img", "*.png"), new FileChooser.ExtensionFilter("All img", "*.jpg", "*.png"));
-            Stage stage = (Stage) button.getScene().getWindow();
-            File selectedFile = fileChooser.showOpenDialog(stage);
-            if(selectedFile != null) {
-                Image image = new Image("file:\\\\\\" + selectedFile.getPath());
-                imgView.setImage(image);
-            } else {
-                System.out.println("No file has been selected");
-            }
-        });
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open a file");
+        fileChooser.setInitialDirectory(new File("C:\\Users\\Алексей\\Pictures"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPEG img", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG img", "*.png"), new FileChooser.ExtensionFilter("All img", "*.jpg", "*.png"));
+        Stage stage = (Stage) button.getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            Image image = new Image("file:\\\\\\" + selectedFile.getPath());
+            imgView.setImage(image);
+        } else {
+            System.out.println("No file has been selected");
+        }
     }
 }
