@@ -44,7 +44,7 @@ public class HelloController {
     void button(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open a file");
-        fileChooser.setInitialDirectory(new File("C:\\Users\\Алексей\\Pictures"));
+        fileChooser.setInitialDirectory(new File("C:\\"));
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("JPEG img", "*.jpg"),
                 new FileChooser.ExtensionFilter("PNG img", "*.png"), new FileChooser.ExtensionFilter("All img", "*.jpg", "*.png"));
         Stage stage = (Stage) button.getScene().getWindow();
