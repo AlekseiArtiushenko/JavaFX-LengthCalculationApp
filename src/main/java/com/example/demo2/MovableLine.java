@@ -10,6 +10,7 @@ public class MovableLine {
 
     Line line;
     Circle startPoint, endPoint;
+    double mainValue;
 
     public MovableLine(Pane root) {
         createDraggableLine(root);
@@ -48,7 +49,16 @@ public class MovableLine {
             line.setEndX(offsetX);
             line.setEndY(offsetY);
         }
+
+        // Высчитываем размер отрезка в системе координат
+        mainValue = Math.sqrt(Math.pow(Math.abs(line.getStartX() - line.getEndX()), 2) +
+                Math.pow(Math.abs(line.getStartY() - line.getEndY()), 2));
     }
+
+    public double getMainValue() {
+        return mainValue;
+    }
+
 
     private Circle createDraggablePoint(double x, double y) {
         Circle point = new Circle(x, y, 5, Color.RED);
