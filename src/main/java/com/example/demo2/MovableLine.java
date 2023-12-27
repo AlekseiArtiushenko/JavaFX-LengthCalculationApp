@@ -10,13 +10,13 @@ public class MovableLine {
 
     Line line;
     Circle startPoint, endPoint;
-    double mainValue;
+    private double mainValue;
 
     public MovableLine(Pane root) {
         createDraggableLine(root);
     }
 
-    private void createDraggableLine(Pane root){
+    private void createDraggableLine(Pane root) {
         // Create the line
         line = new Line(50, 50, 100, 100);
         line.setStroke(Color.BLACK);
@@ -70,7 +70,7 @@ public class MovableLine {
     }
 
 
-    public void removeLineFrom(Pane root){
+    public void removeLineFrom(Pane root) {
         root.getChildren().remove(line);
         root.getChildren().remove(startPoint);
         root.getChildren().remove(endPoint);

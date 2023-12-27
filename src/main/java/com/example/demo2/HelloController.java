@@ -35,8 +35,6 @@ public class HelloController {
     private AnchorPane anchorPane;
 
     List<MovableLine> lines = new ArrayList<>();
-    double valueInCm;
-    double difference;
 
     @FXML
     void addLine(ActionEvent event) {
@@ -79,18 +77,15 @@ public class HelloController {
     @FXML
     void calculate(MouseEvent event) {
         MovableLine getFirstValue = lines.get(0);
-        valueInCm = Double.parseDouble(lineLength.getText());
-        difference = valueInCm / getFirstValue.getMainValue();
+        double valueInCm = Double.parseDouble(lineLength.getText());
+        double difference = valueInCm / getFirstValue.getMainValue();
 
         linesLengthsOutput.setText("Значение основного отрезка: " + difference * getFirstValue.getMainValue() + "\n");
 
-
-        for(int i = 1; i < lines.size(); i++) {
+        for (int i = 1; i < lines.size(); i++) {
             MovableLine getOtherValue = lines.get(i);
-            linesLengthsOutput.setText(linesLengthsOutput.getText() + "\n" + "Значение отрезка: " + i + " "
+            linesLengthsOutput.setText(linesLengthsOutput.getText() + "\n" + "Значение отрезка " + i + ": "
                     + difference * getOtherValue.getMainValue());
-
         }
-
     }
 }
